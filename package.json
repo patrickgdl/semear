@@ -1,8 +1,8 @@
 {
-  "name": "ion-course",
+  "name": "ion-megahack",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Inception Team",
+  "homepage": "https://ionic-hackathon.firebaseapp.com",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

@@ -1,5 +1,7 @@
 # Ionic4 + Firebase
 
+Access: https://ionic-hackathon.firebaseapp.com
+
 A complete cross-platform app for the web, iOS, and Android using Ionic v4 (Angular) & Firebase.
 
 ## Features
