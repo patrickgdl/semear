@@ -1,27 +1,26 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { TutorialGuard } from './guards/tutorial.guard';
+import { RouterModule, Routes } from '@angular/router';
+
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './home/home.module#HomePageModule',
-    canActivate: [TutorialGuard]
+    loadChildren: () => import('./features/tabs/tabs.module').then((m) => m.TabsPageModule),
   },
   {
     path: 'todo',
     loadChildren: './todo/todo.module#TodoPageModule',
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'tutorial',
-    loadChildren: './tutorial/tutorial.module#TutorialPageModule'
+    loadChildren: './tutorial/tutorial.module#TutorialPageModule',
   },
-  { path: 'fcm', loadChildren: './fcm/fcm.module#FcmPageModule' }
+  { path: 'fcm', loadChildren: './fcm/fcm.module#FcmPageModule' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

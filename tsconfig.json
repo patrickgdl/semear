@@ -4,12 +4,13 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
+    "module": "esnext",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
     "lib": [
-      "es2017",
+      "es2018",
       "dom"
     ]
   }
