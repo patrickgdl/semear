@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class TutorialPage {
   constructor(private storage: Storage, private router: Router) {}
 
-  @ViewChild('slides') slides;
+  @ViewChild('slides', { static: true }) slides;
 
   async finish() {
     await this.storage.set('tutorialComplete', true);

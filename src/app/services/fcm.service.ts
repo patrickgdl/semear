@@ -33,9 +33,7 @@ export class FcmService {
     const toast = await this.toastController.create({
       message,
       duration: 5000,
-      position: 'top',
-      showCloseButton: true,
-      closeButtonText: 'dismiss'
+      position: 'top'
     });
     toast.present();
   }

@@ -30,7 +30,7 @@ export class DbService {
       .snapshotChanges()
       .pipe(
         map(doc => {
-          return { id: doc.payload.id, ...doc.payload.data() };
+          return { id: doc.payload.id, ...doc.payload.data() as {}};
         })
       );
   }

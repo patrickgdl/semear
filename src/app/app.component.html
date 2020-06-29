@@ -1,5 +1,5 @@
 <ion-app>
-    <ion-menu side="start" type="push" #mymenu>
+    <ion-menu side="start" type="push" #mymenu contentId="menu-content">
         <ion-header>
             <ion-toolbar color="dark">
                 <ion-title>Menu</ion-title>
@@ -26,5 +26,5 @@
 
         </ion-content>
     </ion-menu>
-    <ion-router-outlet main></ion-router-outlet>
+    <ion-router-outlet id="menu-content"></ion-router-outlet>
 </ion-app>

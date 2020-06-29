@@ -45,7 +45,7 @@ export class AuthService {
   }
 
   async anonymousLogin() {
-    const credential = await this.afAuth.auth.signInAnonymously();
+    const credential = await this.afAuth.signInAnonymously();
     return await this.updateUserData(credential.user);
   }
 
@@ -66,7 +66,7 @@ export class AuthService {
   }
 
   async signOut() {
-    await this.afAuth.auth.signOut();
+    await this.afAuth.signOut();
     return this.router.navigate(['/']);
   }
 
@@ -89,7 +89,7 @@ export class AuthService {
       } else {
         await this.setRedirect(true);
         const provider = new auth.GoogleAuthProvider();
-        user = await this.afAuth.auth.signInWithRedirect(provider);
+        user = await this.afAuth.signInWithRedirect(provider);
       }
 
       return await this.updateUserData(user);
@@ -106,7 +106,7 @@ export class AuthService {
     const loading = await this.loadingController.create();
     await loading.present();
 
-    const result = await this.afAuth.auth.getRedirectResult();
+    const result = await this.afAuth.getRedirectResult();
 
     if (result.user) {
       await this.updateUserData(result.user);
@@ -127,7 +127,7 @@ export class AuthService {
       scopes: 'profile email'
     });
 
-    return await this.afAuth.auth.signInWithCredential(
+    return await this.afAuth.signInWithCredential(
       auth.GoogleAuthProvider.credential(gplusUser.idToken)
     );
   }
