@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FcmService } from '../services/fcm.service';
-import { DbService } from '../services/db.service';
+
+import { DbService } from '../../services/db.service';
+import { FcmService } from '../../services/fcm.service';
 
 @Component({
   selector: 'app-fcm',
   templateUrl: './fcm.page.html',
-  styleUrls: ['./fcm.page.scss']
+  styleUrls: ['./fcm.page.scss'],
 })
 export class FcmPage implements OnInit {
   constructor(public fcm: FcmService, private db: DbService) {}

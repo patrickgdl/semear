@@ -10,14 +10,14 @@ const routes: Routes = [
   },
   {
     path: 'todo',
-    loadChildren: './todo/todo.module#TodoPageModule',
+    loadChildren: './pages/todo/todo.module#TodoPageModule',
     canActivate: [AuthGuard],
   },
   {
     path: 'tutorial',
     loadChildren: './tutorial/tutorial.module#TutorialPageModule',
   },
-  { path: 'fcm', loadChildren: './fcm/fcm.module#FcmPageModule' },
+  { path: 'fcm', loadChildren: './pages/fcm/fcm.module#FcmPageModule' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

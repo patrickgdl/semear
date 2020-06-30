@@ -18,7 +18,7 @@ import { User } from '@models/user.interface';
   providedIn: 'root'
 })
 export class AuthService {
-  user$: Observable<User>;
+  user$: Observable<any>;
 
   constructor(
     private afAuth: AngularFireAuth,

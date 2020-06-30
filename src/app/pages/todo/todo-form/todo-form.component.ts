@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, NavParams } from '@ionic/angular';
-import { DbService } from '../../services/db.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
+
+import { AuthService } from '../../../services/auth.service';
+import { DbService } from '../../../services/db.service';
 
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
-  styleUrls: ['./todo-form.component.scss']
+  styleUrls: ['./todo-form.component.scss'],
 })
 export class TodoFormComponent implements OnInit {
   constructor(
@@ -25,18 +26,11 @@ export class TodoFormComponent implements OnInit {
     const data = {
       content: '',
       status: 'pending',
-      ...this.todo
+      ...this.todo,
     };
     this.todoForm = this.fb.group({
-      content: [
-        data.content,
-        [
-          Validators.required,
-          Validators.minLength(1),
-          Validators.maxLength(250)
-        ]
-      ],
-      status: [data.status, [Validators.required]]
+      content: [data.content, [Validators.required, Validators.minLength(1), Validators.maxLength(250)]],
+      status: [data.status, [Validators.required]],
     });
   }
 
@@ -47,7 +41,7 @@ export class TodoFormComponent implements OnInit {
       uid,
       createdAt: Date.now(),
       ...this.todo,
-      ...this.todoForm.value
+      ...this.todoForm.value,
     };
 
     this.db.updateAt(`todos/${id}`, data);

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { switchMap, map, shareReplay } from 'rxjs/operators';
-import { DbService } from '../services/db.service';
-import { AuthService } from '../services/auth.service';
+import { DbService } from '../../services/db.service';
+import { AuthService } from '../../services/auth.service';
 
 import { ModalController } from '@ionic/angular';
 import { TodoFormComponent } from './todo-form/todo-form.component';
@@ -10,7 +10,7 @@ import { TodoFormComponent } from './todo-form/todo-form.component';
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.page.html',
-  styleUrls: ['./todo.page.scss']
+  styleUrls: ['./todo.page.scss'],
 })
 export class TodoPage implements OnInit {
   todos;
@@ -18,34 +18,17 @@ export class TodoPage implements OnInit {
 
   filter = new BehaviorSubject(null);
 
-  constructor(
-    public db: DbService,
-    public modal: ModalController,
-    public auth: AuthService
-  ) {}
+  constructor(public db: DbService, public modal: ModalController, public auth: AuthService) {}
 
   ngOnInit() {
     this.todos = this.auth.user$.pipe(
-      switchMap(user =>
-        this.db.collection$('todos', ref =>
-          ref
-            .where('uid', '==', user.uid)
-            .orderBy('createdAt', 'desc')
-            .limit(25)
-        )
-      ),
+      switchMap((user) => this.db.collection$('todos', (ref) => ref.where('uid', '==', user.uid).orderBy('createdAt', 'desc').limit(25))),
       shareReplay(1)
     );
 
     this.filtered = this.filter.pipe(
-      switchMap(status => {
-        return this.todos.pipe(
-          map(arr =>
-            (arr as any[]).filter(
-              obj => (status ? obj.status === status : true)
-            )
-          )
-        );
+      switchMap((status) => {
+        return this.todos.pipe(map((arr) => (arr as any[]).filter((obj) => (status ? obj.status === status : true))));
       })
     );
   }
@@ -66,7 +49,7 @@ export class TodoPage implements OnInit {
   async presentTodoForm(todo?: any) {
     const modal = await this.modal.create({
       component: TodoFormComponent,
-      componentProps: { todo }
+      componentProps: { todo },
     });
     return await modal.present();
   }
