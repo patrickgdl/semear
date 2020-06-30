@@ -12,12 +12,13 @@ import { Platform } from '@ionic/angular';
 
 import { LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import { User } from '@models/user.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  user$: Observable<any>;
+  user$: Observable<User>;
 
   constructor(
     private afAuth: AngularFireAuth,
