@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DbService {
-  constructor(private afs: AngularFirestore) {}
+  constructor(private afs: AngularFirestore) { }
 
-  collection$(path, query?) {
+  collection$(path, query?): Observable<any[]> {
     return this.afs
       .collection(path, query)
       .snapshotChanges()
@@ -30,7 +30,7 @@ export class DbService {
       .snapshotChanges()
       .pipe(
         map(doc => {
-          return { id: doc.payload.id, ...doc.payload.data() as {}};
+          return { id: doc.payload.id, ...doc.payload.data() as {} };
         })
       );
   }

@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+import { Story } from './../../../models/story.interface';
+import { DbService } from './../../../services/db.service';
 
 @Component({
   selector: 'app-stories',
@@ -7,6 +12,20 @@ import { Component } from '@angular/core';
 })
 export class StoriesPage {
 
-  constructor() {}
+  stories$: Observable<Story[]>;
+
+  constructor(
+    private dbService: DbService
+  ) { }
+
+  ionViewDidEnter() {
+    this.stories$ = this.dbService.collection$('stories').pipe(map(res => {
+      res.forEach(element => {
+        element.content = element.content.split('\\n').join('\n');
+        return element;
+      });
+      return res;
+    }));
+  }
 
 }
