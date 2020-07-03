@@ -67,8 +67,8 @@
     --ion-color-dark-contrast-rgb: 255, 255, 255;
     --ion-color-dark-shade: #1e1e1e;
     --ion-color-dark-tint: #383838;
-    --body-font: 'Cairo';
-    --heading-font: 'Rokkitt';
+    --body-font: 'HK Medium';
+    --heading-font: 'HK Bold';
     --ion-font-family: var(--body-font);
 }
 
@@ -81,12 +81,18 @@
 }
 
 @font-face {
-    font-family: 'Cairo';
-    src: url('/assets/fonts/Cairo/Cairo-Regular.ttf');
+    font-family: 'HK Regular';
+    src: url('/assets/fonts/hk-grotesk/hk-grotesk.regular.ttf');
 }
 
 @font-face {
-    font-family: 'Rokkitt';
-    src: url('/assets/fonts/Rokkitt/Rokkitt-Bold.ttf');
+    font-family: 'HK Medium';
+    src: url('/assets/fonts/hk-grotesk/hk-grotesk.medium.ttf');
+    font-weight: medium;
+}
+
+@font-face {
+    font-family: 'HK Bold';
+    src: url('/assets/fonts/hk-grotesk/hk-grotesk.regular.ttf');
     font-weight: bold;
 }
