@@ -1,15 +1,15 @@
 // http://ionicframework.com/docs/theming/
-@import "~@ionic/angular/css/core.css";
-@import "~@ionic/angular/css/normalize.css";
-@import "~@ionic/angular/css/structure.css";
-@import "~@ionic/angular/css/typography.css";
-@import "~@ionic/angular/css/padding.css";
-@import "~@ionic/angular/css/float-elements.css";
-@import "~@ionic/angular/css/text-alignment.css";
-@import "~@ionic/angular/css/text-transformation.css";
-@import "~@ionic/angular/css/flex-utils.css";
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
 body {
-    font-family: var(--body-font);
+  font-family: var(--body-font);
 }
 
 h1,
@@ -18,9 +18,13 @@ h3,
 h4,
 h5,
 ion-title {
-    font-family: var(--heading-font);
+  font-family: var(--heading-font);
 }
 
-ion-content{
-    --background: #F3F5F9;
+ion-content {
+  --background: #f3f5f9;
+}
+
+ion-card {
+  border-radius: 15px;
 }

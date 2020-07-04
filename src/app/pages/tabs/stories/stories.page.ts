@@ -13,6 +13,9 @@ import { DbService } from './../../../services/db.service';
 export class StoriesPage {
 
   stories$: Observable<Story[]>;
+  slideConfig = {
+    slidesPerView: 2.2
+  };
 
   constructor(
     private dbService: DbService

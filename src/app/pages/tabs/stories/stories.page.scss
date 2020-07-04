@@ -1,3 +1,18 @@
 ion-card-content {
   white-space: break-spaces;
 }
+
+ion-img {
+  transform: scale(2);
+  height: 60px;
+  margin-top: 25px;
+}
+
+ion-card-header {
+  margin-top: 30px;
+  text-align: left;
+}
+
+ion-card-title {
+  font-size: 18px;
+}

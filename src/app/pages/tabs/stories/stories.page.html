@@ -8,22 +8,17 @@
 
 <ion-content>
 
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-card *ngFor="let story of stories$ | async">
-    <ion-img [src]="story.coverURL"></ion-img>
-    <ion-card-header>
-      <ion-card-subtitle>{{ story.category }}</ion-card-subtitle>
-      <ion-card-title>{{ story.name }}</ion-card-title>
-      <ion-card-subtitle>{{ story.author }} ({{ story.date | date: 'yyyy' }})</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      {{ story.content }}
-    </ion-card-content>
-  </ion-card>
+  <ion-slides [options]="slideConfig">
+    <ion-slide *ngFor="let story of stories$ | async">
+      <ion-card>
+        <ion-img [src]="story.coverURL"></ion-img>
+        <ion-card-header>
+          <ion-card-subtitle>{{ story.category }}</ion-card-subtitle>
+          <ion-card-title>{{ story.name }}</ion-card-title>
+          <ion-card-subtitle>{{ story.author }} ({{ story.date | date: 'yyyy' }})</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
 
 </ion-content>
