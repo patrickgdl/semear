@@ -28,3 +28,16 @@ ion-content {
 ion-card {
   border-radius: 15px;
 }
+
+ion-title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  padding-left: 0px;
+  margin-left: -27px;
+  // identical to box height
+
+  text-align: center;
+  color: var(--ion-color-primary);
+}
