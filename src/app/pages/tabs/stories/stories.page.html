@@ -1,5 +1,4 @@
 <ion-content padding>
-  
   <ion-slides [options]="slideConfig">
     <ion-slide *ngFor="let story of stories$ | async">
       <ion-card button (click)="goToDetail(story.uid)">
@@ -12,5 +11,4 @@
       </ion-card>
     </ion-slide>
   </ion-slides>
-
 </ion-content>

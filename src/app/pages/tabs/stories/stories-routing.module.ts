@@ -9,21 +9,19 @@ import { StoryDetailsPage } from './story-details/story-details.page';
 const routes: Routes = [
   {
     path: '',
-    component: StoriesPage,
+    component: StoriesPage
+  },
+  {
+    path: ':id',
+    component: StoryDetailsPage,
     children: [
       {
-        path: ':id',
-        component: StoryDetailsPage,
-        children: [
-          {
-            path: 'games',
-            component: StoryDetailsGamesPage
-          },
-          {
-            path: 'discussion',
-            component: StoryDetailsDiscussionPage
-          }
-        ]
+        path: 'games',
+        component: StoryDetailsGamesPage
+      },
+      {
+        path: 'discussion',
+        component: StoryDetailsDiscussionPage
       }
     ]
   }

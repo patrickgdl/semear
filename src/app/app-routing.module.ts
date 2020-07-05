@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 import { AuthGuard } from './guards/auth.guard';
 import { TutorialGuard } from './guards/tutorial.guard';
@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'fcm', loadChildren: './pages/fcm/fcm.module#FcmPageModule' },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

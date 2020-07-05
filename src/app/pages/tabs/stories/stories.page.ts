@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterEvent, NavigationEnd } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -17,7 +17,8 @@ export class StoriesPage {
     slidesPerView: 2.2,
   };
 
-  constructor(private dbService: DbService, private router: Router) {}
+  constructor(private dbService: DbService, private router: Router) {
+  }
 
   ionViewDidEnter() {
     this.stories$ = this.dbService.collection$('stories').pipe(
