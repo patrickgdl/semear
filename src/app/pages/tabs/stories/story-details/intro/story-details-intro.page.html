@@ -1,23 +1,15 @@
-<!-- <ion-spinner *ngIf="!intro" name="dots"></ion-spinner> -->
 
-<div>
-
-  <!-- <ion-card>
-    <ion-card-header>
-      <ion-card-title>Introdução</ion-card-title>
-      <ion-card-subtitle>{{ story?.author }}</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      {{ story?.summary }}
-    </ion-card-content>
-  </ion-card> -->
-
+<div *ngIf="story$ | async as story">
   <ion-text>
     <h3>Introdução</h3>
   </ion-text>
 
   <p class="ion-text-justify">
-    {{ story?.summary }}
+    {{ story.summary }}
   </p>
 
+  <ion-button color="primary" expand="full" (click)="navigateTo(story.uid)">
+    Começar
+    <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+  </ion-button>
 </div>

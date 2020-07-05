@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { AuthGuard } from './guards/auth.guard';
 import { TutorialGuard } from './guards/tutorial.guard';
 
 const routes: Routes = [
@@ -14,8 +13,7 @@ const routes: Routes = [
     path: 'tutorial',
     loadChildren: () => import('./tutorial/tutorial.module').then((m) => m.TutorialPageModule)
   },
-  { path: 'fcm', loadChildren: () => import('./pages/fcm/fcm.module').then((m) => m.FcmPageModule) },
-  { path: 'canvas', loadChildren: () => import('./pages/story-canvas/story-canvas.module').then((m) => m.StoryCanvasModule) }
+  { path: 'fcm', loadChildren: () => import('./pages/fcm/fcm.module').then((m) => m.FcmPageModule) }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],

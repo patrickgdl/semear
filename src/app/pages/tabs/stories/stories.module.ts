@@ -5,11 +5,10 @@ import { IonicModule } from '@ionic/angular';
 
 import { StoriesPageRoutingModule } from './stories-routing.module';
 import { StoriesPage } from './stories.page';
-import { StoryCanvasModule } from './story-canvas/story-canvas.module';
 import { StoryDetailsModule } from './story-details/story-details.module';
 
 @NgModule({
-  imports: [IonicModule, CommonModule, FormsModule, StoriesPageRoutingModule, StoryDetailsModule, StoryCanvasModule],
+  imports: [IonicModule, CommonModule, FormsModule, StoriesPageRoutingModule, StoryDetailsModule],
   declarations: [StoriesPage]
 })
 export class StoriesPageModule {}
