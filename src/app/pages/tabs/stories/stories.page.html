@@ -1,16 +1,8 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Histórias
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
+<ion-content padding>
+  
   <ion-slides [options]="slideConfig">
     <ion-slide *ngFor="let story of stories$ | async">
-      <ion-card>
+      <ion-card button (click)="goToDetail(story.uid)">
         <ion-img [src]="story.coverURL"></ion-img>
         <ion-card-header>
           <ion-card-subtitle>{{ story.category }}</ion-card-subtitle>

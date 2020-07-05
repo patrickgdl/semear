@@ -10,35 +10,35 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule),
+        loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule)
       },
       {
         path: 'stories',
-        loadChildren: () => import('./stories/stories.module').then((m) => m.StoriesPageModule),
+        loadChildren: () => import('./stories/stories.module').then((m) => m.StoriesPageModule)
       },
       {
         path: 'books',
-        loadChildren: () => import('./books/books.module').then((m) => m.BooksPageModule),
+        loadChildren: () => import('./books/books.module').then((m) => m.BooksPageModule)
       },
       {
         path: 'profile',
-        loadChildren: () => import('./profile/profile.module').then((m) => m.ProfilePageModule),
+        loadChildren: () => import('./profile/profile.module').then((m) => m.ProfilePageModule)
       },
       {
         path: '',
-        redirectTo: '/home',
-      },
-    ],
+        redirectTo: '/home'
+      }
+    ]
   },
   {
     path: '',
     redirectTo: '/tabs/home',
-    pathMatch: 'full',
-  },
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class TabsPageRoutingModule {}
