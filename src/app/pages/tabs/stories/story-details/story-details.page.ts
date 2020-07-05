@@ -30,6 +30,7 @@ export class StoryDetailsPage implements OnInit {
           data.summary = data.summary.split('\\n').join('\n');
           this.story = data;
           this.loadingService.dismiss();
+          this.segmentChanged();
         },
         error => {
           this.loadingService.dismiss();
@@ -37,16 +38,17 @@ export class StoryDetailsPage implements OnInit {
       );
   }
 
-  segmentChanged(ev: any) {
-    console.log('Segment changed', ev);
+  segmentChanged(tab = 'intro') {
     const id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
-
-    if (ev.target.value === 'discussion') {
+    if (tab === 'intro') {
+      this.router.navigate([`/stories/${id}/intro`], { state: { intro: this.story.summary } });
+    }
+    if (tab === 'games') {
+      this.router.navigate([`/stories/${id}/games`]);
+    }
+    if (tab === 'discussion') {
       this.router.navigate([`/stories/${id}/discussion`]);
     }
-
-
   }
 
 }

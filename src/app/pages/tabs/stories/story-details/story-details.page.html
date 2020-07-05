@@ -19,8 +19,8 @@
   <img [src]="story?.coverURL" class="ion-margin-vertical">
 
   <ion-toolbar>
-    <ion-segment (ionChange)="segmentChanged($event)">
-      <ion-segment-button value="story">
+    <ion-segment (ionChange)="segmentChanged($event.target.value)">
+      <ion-segment-button value="intro">
         <ion-label>HISTÓRIA</ion-label>
       </ion-segment-button>
       <ion-segment-button value="games">
@@ -31,14 +31,6 @@
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
-
-  <ion-text>
-    <h3>Introdução</h3>
-  </ion-text>
-
-  <p class="ion-text-justify">
-    {{ story?.summary }}
-  </p>
 
   <ion-router-outlet></ion-router-outlet>
 
