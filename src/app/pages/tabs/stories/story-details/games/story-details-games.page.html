@@ -1,3 +1,22 @@
-<!-- <ion-content padding> -->
-  <p>KK eae men games</p>
-<!-- </ion-content> -->
+<div>
+  <ion-card *ngFor="let game of games">
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <ion-img [src]="game.image"></ion-img>
+      </ion-avatar>
+      <ion-card-header class="ion-margin-top">
+        <ion-card-subtitle>{{ game.title }}</ion-card-subtitle>
+        <ion-card-title>{{ game.subtitle }}</ion-card-title>
+      </ion-card-header>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-card-content>
+        <ion-card-subtitle>{{ game.description }}</ion-card-subtitle>
+      </ion-card-content>
+    </ion-item>
+    <ion-button color="primary" expand="full" (click)="navigateTo(game.page)">
+      Começar
+      <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+  </ion-card>
+</div>
