@@ -5,12 +5,12 @@
     </div>
   </ion-toolbar>
 
-  <ion-fab horizontal="start" vertical="bottom" slot="fixed">
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
     <ion-fab-button>
       <ion-icon name="cog"></ion-icon>
     </ion-fab-button>
-    <ion-fab-list>
-      <ion-fab-button color="light">
+    <ion-fab-list side="top">
+      <ion-fab-button color="light" (click)="navigateTo('stories')">
         <ion-icon name="close"></ion-icon>
       </ion-fab-button>
       <ion-fab-button color="light">
