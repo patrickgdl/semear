@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, QueryFn } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+
+type CollectionPredicate<T> = string | AngularFirestoreCollection<T>;
 
 @Injectable({
   providedIn: 'root'
@@ -59,5 +61,20 @@ export class DbService {
    **/
   delete(path) {
     return this.afs.doc(path).delete();
+  }
+
+  col<T>(ref: CollectionPredicate<T>, queryFn?: QueryFn): AngularFirestoreCollection<T> {
+    return typeof ref === 'string' ? this.afs.collection<T>(ref, queryFn) : ref;
+  }
+
+  colWithId$<T>(ref: CollectionPredicate<T>, queryFn?: QueryFn): Observable<T[]> {
+    return this.col(ref, queryFn).snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const uid = a.payload.doc.id;
+          return { uid, ...<any>data };
+        });
+      }));
   }
 }

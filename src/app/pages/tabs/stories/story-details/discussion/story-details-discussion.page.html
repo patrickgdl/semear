@@ -1,34 +1,29 @@
-<div>
-
+<div *ngFor="let discussion of discussions">
   <ion-card>
     <ion-item>
       <ion-avatar slot="start">
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/semear-labs.appspot.com/o/users%2Favatars%2Fjuliana.png?alt=media&token=8af7f564-0f04-43db-89b3-c1732db9bbe0">
+        <img [src]="discussion.userUid.photoURL">
       </ion-avatar>
       <ion-card-header>
-        <ion-card-title>Juliana Fernandes</ion-card-title>
-        <ion-card-subtitle>Como o personagem pode fazer aquilo com o Devon?</ion-card-subtitle>
-        <ion-card-subtitle>1h atrás</ion-card-subtitle>
+        <ion-card-title>{{ discussion.userUid.displayName }}</ion-card-title>
+        <ion-card-subtitle>{{ discussion.message }}</ion-card-subtitle>
+        <ion-card-subtitle> {{ utilsService.timeAgo(discussion.date) }}</ion-card-subtitle>
       </ion-card-header>
     </ion-item>
   </ion-card>
-
-  <ion-card class="ion-margin-vertical">
-    <ion-item>
-      <ion-avatar slot="start">
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/semear-labs.appspot.com/o/users%2Favatars%2Flondon.png?alt=media&token=0c2654aa-948e-487b-92e0-9fbe12e79e0d">
-      </ion-avatar>
-      <ion-card-header>
-        <ion-card-title>Landon Clayton</ion-card-title>
-        <ion-card-subtitle>
-          <ion-text color="primary">@Juliana Fernandes</ion-text> A hipótese é uma afirmação não comprovada; isso pode
-          ser testado.
-        </ion-card-subtitle>
-        <ion-card-subtitle>2min atrás</ion-card-subtitle>
-      </ion-card-header>
-    </ion-item>
-  </ion-card>
-
 </div>
+<div *ngIf="!discussions?.length" class="ion-margin-top">
+  <ion-icon src="assets/icon/artwork.svg"></ion-icon>
+  <p class="ion-text-center ion-margin-vertical">
+    Sem discussões!
+  </p>
+  <ion-text class="ion-text-center ion-margin-top">
+    Adicione uma nova discussão clicando no botão abaixo.
+  </ion-text>
+</div>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
