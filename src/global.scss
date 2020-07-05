@@ -41,3 +41,7 @@ ion-title {
   text-align: center;
   color: var(--ion-color-primary);
 }
+
+.ion-page {
+  overflow: auto !important;
+}
