@@ -62,5 +62,4 @@ export class StoryDetailsIntroPage implements OnInit {
   navigateTo(uid: string) {
     this.router.navigate([`story-canvas/${uid}/drawing`]);
   }
-
 }

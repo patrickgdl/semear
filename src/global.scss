@@ -45,3 +45,8 @@ ion-title {
 .ion-page {
   overflow: auto !important;
 }
+
+.swiper-container-3d .swiper-slide-shadow-bottom,
+.swiper-container-3d .swiper-slide-shadow-top {
+  background-image: none;
+}
