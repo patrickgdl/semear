@@ -1,4 +1,3 @@
-
 <div *ngIf="story$ | async as story">
   <ion-text>
     <h3>Introdução</h3>
@@ -12,4 +11,18 @@
     Começar
     <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
   </ion-button>
+
+  <ion-list>
+    <ion-item lines="none" *ngFor="let list of lists" [href]="list.url">
+      <ion-avatar slot="start">
+        <img [src]="list.image">
+      </ion-avatar>
+      <ion-label>
+        <p>{{ list.text }}</p>
+        <ion-text>{{ list.label }}</ion-text>
+      </ion-label>
+      <ion-icon name="chevron-forward"></ion-icon>
+    </ion-item>
+  </ion-list>
+
 </div>
