@@ -1,11 +1,23 @@
-<!-- <ion-content padding> -->
+<!-- <ion-spinner *ngIf="!intro" name="dots"></ion-spinner> -->
+
+<div>
+
+  <!-- <ion-card>
+    <ion-card-header>
+      <ion-card-title>Introdução</ion-card-title>
+      <ion-card-subtitle>{{ story?.author }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{ story?.summary }}
+    </ion-card-content>
+  </ion-card> -->
 
   <ion-text>
     <h3>Introdução</h3>
   </ion-text>
 
   <p class="ion-text-justify">
-    {{ intro }}
+    {{ story?.summary }}
   </p>
 
-<!-- </ion-content> -->
+</div>

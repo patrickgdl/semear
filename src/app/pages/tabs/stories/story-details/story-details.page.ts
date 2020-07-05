@@ -13,6 +13,7 @@ import { LoadingService } from './../../../../services/loading.service';
 export class StoryDetailsPage implements OnInit {
 
   story: Story;
+  segment: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,8 +30,8 @@ export class StoryDetailsPage implements OnInit {
         (data: Story) => {
           data.summary = data.summary.split('\\n').join('\n');
           this.story = data;
+          this.segmentChanged(this.router.url.split('/')[3]);
           this.loadingService.dismiss();
-          this.segmentChanged();
         },
         error => {
           this.loadingService.dismiss();
@@ -38,15 +39,16 @@ export class StoryDetailsPage implements OnInit {
       );
   }
 
-  segmentChanged(tab = 'intro') {
+  segmentChanged(segment = 'intro') {
+    this.segment = segment;
     const id = this.route.snapshot.paramMap.get('id');
-    if (tab === 'intro') {
-      this.router.navigate([`/stories/${id}/intro`], { state: { intro: this.story.summary } });
+    if (segment === 'intro') {
+      this.router.navigate([`/stories/${id}/intro`]);
     }
-    if (tab === 'games') {
+    if (segment === 'games') {
       this.router.navigate([`/stories/${id}/games`]);
     }
-    if (tab === 'discussion') {
+    if (segment === 'discussion') {
       this.router.navigate([`/stories/${id}/discussion`]);
     }
   }

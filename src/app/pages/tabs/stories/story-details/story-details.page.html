@@ -20,18 +20,20 @@
 
   <ion-toolbar>
     <ion-segment (ionChange)="segmentChanged($event.target.value)">
-      <ion-segment-button value="intro">
+      <ion-segment-button value="intro" [class]="segment === 'intro' ? 'segment-button-checked' : ''">
         <ion-label>HISTÓRIA</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="games">
+      <ion-segment-button value="games" [class]="segment === 'games' ? 'segment-button-checked' : ''">
         <ion-label>JOGOS</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="discussion">
+      <ion-segment-button value="discussion" [class]="segment === 'discussion' ? 'segment-button-checked' : ''">
         <ion-label>DISCUSSÃO</ion-label>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 
-  <ion-router-outlet></ion-router-outlet>
+  <ion-content>
+    <ion-router-outlet></ion-router-outlet>
+  </ion-content>
 
 </ion-content>
