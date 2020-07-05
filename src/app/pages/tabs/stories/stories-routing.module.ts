@@ -29,16 +29,16 @@ const routes: Routes = [
       {
         path: 'discussion',
         component: StoryDetailsDiscussionPage
+      },
+      {
+        path: 'drawings',
+        component: StoryCanvasDrawingsPage
+      },
+      {
+        path: 'chat',
+        component: StoryCanvasChatPage
       }
     ]
-  },
-  {
-    path: 'drawings',
-    component: StoryCanvasDrawingsPage
-  },
-  {
-    path: 'chat',
-    component: StoryCanvasChatPage
   }
 ];
 
