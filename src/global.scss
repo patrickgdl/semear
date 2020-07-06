@@ -8,6 +8,11 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+// quill WYSIWYG
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.snow.css';
+
 body {
   font-family: var(--body-font);
 }
@@ -44,4 +49,14 @@ ion-title {
 
 .ion-page {
   overflow: auto !important;
+}
+
+.swiper-container-3d .swiper-slide-shadow-bottom,
+.swiper-container-3d .swiper-slide-shadow-top {
+  background-image: none;
+}
+
+[contenteditable] {
+  -webkit-user-select: text;
+  user-select: text;
 }

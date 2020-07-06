@@ -7,13 +7,13 @@
     {{ story.summary }}
   </p>
 
-  <ion-button color="primary" expand="full" (click)="navigateTo(story.uid)">
+  <ion-button color="primary" expand="full" (click)="navigateToInit(story.uid)">
     Começar
     <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
   </ion-button>
 
   <ion-list>
-    <ion-item lines="none" *ngFor="let list of lists" [href]="list.url">
+    <ion-item lines="none" *ngFor="let list of lists" (click)="navigateToChildren(story.uid, list.url)">
       <ion-avatar slot="start">
         <img [src]="list.image">
       </ion-avatar>

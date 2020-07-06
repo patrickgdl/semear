@@ -1,0 +1,22 @@
+<ion-content>
+  <ion-text>
+    <h3>Utilize suas cores favoritas</h3>
+  </ion-text>
+
+  <button (click)="painter.undo()">Desfazer</button>
+  <button (click)="painter.redo()">Refazer</button>
+  <button (click)="painter.wipe()">Limpar</button>
+
+  <span></span>
+
+  <app-canvas-painter
+    #painter
+    color="#00FF00"
+    lineWidth="5"
+    (paintStart)="onPaintStart()"
+    (paintEnd)="onPaintEnd()"
+    (undoLength)="onUndoLengthChanged($event)"
+    (redoLength)="onRedoLengthChanged($event)"
+    (isEmpty)="onIsEmptyChanged($event)"
+  ></app-canvas-painter>
+</ion-content>
