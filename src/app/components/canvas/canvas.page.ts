@@ -5,13 +5,13 @@ import { pairwise, switchMap, takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-canvas',
   template: `<canvas #canvas></canvas>'`,
-  styles: ['canvas { border: 1px solid #000; }'],
+  styles: ['canvas { border: 1px solid #000; background: #fff}']
 })
 export class CanvasPage implements AfterViewInit {
   @ViewChild('canvas', { static: true }) public canvas: ElementRef;
 
-  @Input() public width = window.innerWidth;
-  @Input() public height = window.innerWidth;
+  @Input() public width = 345;
+  @Input() public height = 400;
 
   private cx: CanvasRenderingContext2D;
 
@@ -78,7 +78,7 @@ export class CanvasPage implements AfterViewInit {
     const rect = canvasEl.getBoundingClientRect();
     return {
       x: touchEvent.touches[0].clientX - rect.left,
-      y: touchEvent.touches[0].clientY - rect.top,
+      y: touchEvent.touches[0].clientY - rect.top
     };
   }
 
@@ -87,7 +87,7 @@ export class CanvasPage implements AfterViewInit {
     const rect = canvasEl.getBoundingClientRect();
     return {
       x: touchEvent.clientX - rect.left,
-      y: touchEvent.clientY - rect.top,
+      y: touchEvent.clientY - rect.top
     };
   }
 }

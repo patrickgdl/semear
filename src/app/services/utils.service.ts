@@ -47,8 +47,8 @@ export class UtilsService {
     const date = typeof dateParam === 'object' ? dateParam : new Date(dateParam);
     const DAY_IN_MS = 86400000; // 24 * 60 * 60 * 1000
     const today = new Date();
-    const yesterday = new Date(today - DAY_IN_MS);
-    const seconds = Math.round((today - date) / 1000);
+    const yesterday = new Date(today.getDay() - DAY_IN_MS);
+    const seconds = Math.round((today.getDay() - date) / 1000);
     const minutes = Math.round(seconds / 60);
     const isToday = today.toDateString() === date.toDateString();
     const isYesterday = yesterday.toDateString() === date.toDateString();
@@ -64,9 +64,9 @@ export class UtilsService {
     } else if (minutes < 60) {
       return `${minutes} minutes ago`;
     } else if (isToday) {
-      return this.getFormattedDate(date, 'Today'); // Today at 10:20
+      return this.getFormattedDate(date, true); // Today at 10:20
     } else if (isYesterday) {
-      return this.getFormattedDate(date, 'Yesterday'); // Yesterday at 10:20
+      return this.getFormattedDate(date, true); // Yesterday at 10:20
     } else if (isThisYear) {
       return this.getFormattedDate(date, false, true); // 10. January at 10:20
     }
