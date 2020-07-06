@@ -1,0 +1,113 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Quiz
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-slides #slides (ionSlideDidChange)="changeSlide($event)">
+
+    <ion-slide>
+      <ion-card class="ion-margin-vertical">
+        <ion-text color="dark" class="ion-margin-top ion-text-center">
+          <h3>Quantos personagens o livro possui?</h3>
+        </ion-text>
+
+        <ion-grid class="ion-margin-bottom">
+          <ion-row>
+            <ion-col>
+              <div [class]="answerSelected === 1 ? 'btn-answer' : 'btn-question'" (click)="answer(1)">
+                <ion-text class="number-numeric">1</ion-text>
+                <ion-text class="number-extensive">Um</ion-text>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div [class]="answerSelected === 2 ? 'btn-answer' : 'btn-question'" (click)="answer(2)">
+                <ion-text class="number-numeric">5</ion-text>
+                <ion-text class="number-extensive">Cinco</ion-text>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div [class]="answerSelected === 3 ? 'btn-answer' : 'btn-question'" (click)="answer(3)">
+                <ion-text class="number-numeric">8</ion-text>
+                <ion-text class="number-extensive">Oito</ion-text>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div [class]="answerSelected === 4 ? 'btn-answer' : 'btn-question'" (click)="answer(4)">
+                <ion-text class="number-numeric">2</ion-text>
+                <ion-text class="number-extensive">Dois</ion-text>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card class="ion-margin-vertical">
+        <ion-text color="dark" class="ion-margin-top ion-text-center">
+          <h3>Qual o nome dessa história?</h3>
+        </ion-text>
+
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/semear-labs.appspot.com/o/stories%2Fcovers%2Fchapeuzinho-vermelho.jpg?alt=media&token=4ad76bab-f90f-4a14-8c18-c161af69e9cd"
+          class="ion-margin" />
+
+        <ion-grid class="ion-margin-bottom">
+          <ion-row>
+            <ion-col>
+              <div [class]="answerSelected === 5 ? 'btn-answer-text' : 'btn-question-text'" (click)="answer(5)">
+                <ion-text class="number-extensive">A. Branca de Neve</ion-text>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div [class]="answerSelected === 6 ? 'btn-answer-text' : 'btn-question-text'" (click)="answer(6)">
+                <ion-text class="number-extensive">B. Chapéuzinho Vermelho</ion-text>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div [class]="answerSelected === 7 ? 'btn-answer-text' : 'btn-question-text'" (click)="answer(7)">
+                <ion-text class="number-extensive">C. Alice</ion-text>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card class="ion-margin-vertical">
+        <img style="width: 60%;" src="assets/icon/result.svg" class="ion-margin" />
+        <div class="ion-margin">
+          <ion-text class="ion-text-center">
+            <h3> Você é incrivel!</h3>
+          </ion-text>
+          <ion-text class="ion-text-center ion-margin-bottom">
+            <h5>Parabéns por ter conseguido todas as respostas corretas.</h5>
+          </ion-text>
+        </div>
+      </ion-card>
+    </ion-slide>
+
+  </ion-slides>
+
+  <ion-button [hidden]="page === 3" (click)="nextQuestion()" [disabled]="!answerSelected" color="primary" expand="block"
+    class="ion-margin-top">
+    Começar
+    <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+  </ion-button>
+
+</ion-content>

@@ -6,11 +6,16 @@ import { StoryDetailsDiscussionPage } from './story-details/discussion/story-det
 import { StoryDetailsGamesPage } from './story-details/games/story-details-games.page';
 import { StoryDetailsIntroPage } from './story-details/intro/story-details-intro.page';
 import { StoryDetailsPage } from './story-details/story-details.page';
+import { StoryQuizPage } from './story-quiz/story-quiz.page';
 
 const routes: Routes = [
   {
     path: '',
     component: StoriesPage
+  },
+  {
+    path: 'quiz',
+    component: StoryQuizPage
   },
   {
     path: ':id',
@@ -36,4 +41,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class StoriesPageRoutingModule {}
+export class StoriesPageRoutingModule { }

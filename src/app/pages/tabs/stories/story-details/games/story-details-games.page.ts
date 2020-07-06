@@ -39,7 +39,10 @@ export class StoryDetailsGamesPage implements OnInit {
 
     navigateTo(page: string) {
         const uid = this.router.url.split('/')[2];
-        this.router.navigate([`stories/${uid}/${page}`]);
+        // this.router.navigate([`stories/${uid}/${page}`]);
+        if (page === 'quiz') {
+            this.router.navigate([`stories/quiz`]);
+        }
     }
 
 }
