@@ -1,6 +1,3 @@
-import { StoryDetailsDiscussionPage } from './stories/story-details/discussion/story-details-discussion.page';
-import { StoryDetailsGamesPage } from './stories/story-details/games/story-details-games.page';
-import { StoryDetailsPage } from './stories/story-details/story-details.page';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 

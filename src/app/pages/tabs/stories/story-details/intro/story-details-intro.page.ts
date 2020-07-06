@@ -31,7 +31,7 @@ export class StoryDetailsIntroPage implements OnInit {
       'text': 'Ilustrar',
       'label': 'Ilustre a história com o seu desenho',
       'image': 'assets/icon/ilustrater.svg',
-      'url': '/ilustrater'
+      'url': '/illustrator'
     },
     {
       'text': 'Gravar',
@@ -59,7 +59,11 @@ export class StoryDetailsIntroPage implements OnInit {
     );
   }
 
-  navigateTo(uid: string) {
+  navigateToInit(uid: string) {
     this.router.navigate([`story-canvas/${uid}/drawing`]);
+  }
+
+  navigateToChildren(uid: string, url: string) {
+    this.router.navigate([`stories/${uid}/${url}`]);
   }
 }
