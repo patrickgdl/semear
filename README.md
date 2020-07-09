@@ -1,8 +1,8 @@
-# Ionic4 + Firebase
+# Semear Project / Ionic4 + Firebase
 
-Access: https://ionic-hackathon.firebaseapp.com
+Access: https://semear-labs.web.app
 
-A complete cross-platform app for the web, iOS, and Android using Ionic v4 (Angular) & Firebase.
+A complete cross-platform educational app for the web, iOS, and Android using Ionic v4 (Angular) & Firebase. Based on short stories and books recommendations.
 
 ## Features
 
@@ -14,16 +14,3 @@ A complete cross-platform app for the web, iOS, and Android using Ionic v4 (Angu
 - Firebase Cloud Messaging (Push Notifications)
 - Cloud Functions with NodeJS
 - Native Packaging and Deployment
-
-## Install
-
-```
-npm i ionic -g
-npm i firebase -g
-
-git clone <this-repo> my-project
-cd my-project
-
-npm install
-ionic s
-```
