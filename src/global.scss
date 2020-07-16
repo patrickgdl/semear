@@ -26,6 +26,16 @@ ion-title {
   font-family: var(--heading-font);
 }
 
+/** can be used on ion-components, eg: <ion-button color="custom">Custom</ion-button>**/
+.ion-color-custom {
+  --ion-color-base: var(--ion-color-custom);
+  --ion-color-base-rgb: var(--ion-color-custom-rgb);
+  --ion-color-contrast: var(--ion-color-custom-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-custom-contrast-rgb);
+  --ion-color-shade: var(--ion-color-custom-shade);
+  --ion-color-tint: var(--ion-color-custom-tint);
+}
+
 ion-card {
   border-radius: 15px;
 }

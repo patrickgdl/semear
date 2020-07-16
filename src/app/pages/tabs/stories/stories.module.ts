@@ -6,9 +6,10 @@ import { IonicModule } from '@ionic/angular';
 import { StoriesPageRoutingModule } from './stories-routing.module';
 import { StoriesPage } from './stories.page';
 import { StoryDetailsModule } from './story-details/story-details.module';
+import { StoryQuizPage } from './story-quiz/story-quiz.page';
 
 @NgModule({
   imports: [IonicModule, CommonModule, FormsModule, StoriesPageRoutingModule, StoryDetailsModule],
-  declarations: [StoriesPage]
+  declarations: [StoriesPage, StoryQuizPage]
 })
 export class StoriesPageModule {}
