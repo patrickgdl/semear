@@ -1,19 +1,23 @@
-<ion-tabs>
+<ion-tabs #myTabs (ionTabsDidChange)="ionTabsDidChange(myTabs)">
   <ion-tab-bar color="light" slot="bottom">
     <ion-tab-button tab="home">
       <ion-icon name="planet-outline"></ion-icon>
+      <ion-label *ngIf="tabSelected == 'home'">Home</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="stories">
       <ion-icon name="bonfire-outline"></ion-icon>
+      <ion-label *ngIf="tabSelected == 'stories'">Histórias</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="books">
       <ion-icon name="book-outline"></ion-icon>
+      <ion-label *ngIf="tabSelected == 'books'">Livros</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="profile">
       <ion-icon name="person-outline"></ion-icon>
+      <ion-label *ngIf="tabSelected == 'profile'">Perfil</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

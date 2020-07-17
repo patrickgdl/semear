@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
+  tabSelected: string;
 
   constructor() {}
 
+  async ionTabsDidChange(event: HTMLIonTabsElement) {
+    this.tabSelected = await event.getSelected();
+  }
 }
