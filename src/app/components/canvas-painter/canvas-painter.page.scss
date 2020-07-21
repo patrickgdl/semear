@@ -1,12 +1,4 @@
 canvas {
-  position: absolute;
-  background-color: transparent;
-}
-
-canvas#static {
-  z-index: 0;
-}
-
-canvas#dynamic {
-  z-index: 1;
+  display: block;
+  border: 1px solid rgb(187, 178, 178);
 }

@@ -29,7 +29,7 @@ import { AppComponent } from './app.component';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireFunctionsModule,
-    AngularFireMessagingModule,
+    AngularFireMessagingModule
   ],
   providers: [Firebase, GooglePlus, StatusBar, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

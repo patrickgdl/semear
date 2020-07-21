@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Platform } from '@ionic/angular';
 import { fromEvent } from 'rxjs';
 import { pairwise, switchMap, takeUntil } from 'rxjs/operators';
 
@@ -15,11 +16,15 @@ export class CanvasPage implements AfterViewInit {
 
   private cx: CanvasRenderingContext2D;
 
+  constructor(private platform: Platform) {
+
+  }
+
   ngAfterViewInit() {
     const canvasEl: HTMLCanvasElement = this.canvas.nativeElement;
     this.cx = canvasEl.getContext('2d');
 
-    canvasEl.width = this.width;
+    canvasEl.width = this.plt.width() + '';
     canvasEl.height = this.height;
 
     this.cx.lineWidth = 3;
