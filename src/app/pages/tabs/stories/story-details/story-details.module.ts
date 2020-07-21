@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { QuillModule } from 'ngx-quill';
 
 import { StoryDetailsFanficPage } from '../story-details/fanfic/story-details-fanfic.page';
 import { StoryDetailsIllustratorPage } from '../story-details/illustrator/story-details-illustrator.page';
@@ -21,12 +20,7 @@ import { StoryDetailsPage } from './story-details.page';
     CommonModule,
     IonicModule,
     CanvasModule,
-    CanvasPainterModule,
-    QuillModule.forRoot({
-      modules: {
-        syntax: true
-      }
-    })
+    CanvasPainterModule
   ],
   exports: [StoryDetailsPage, StoryDetailsDiscussionPage, StoryDetailsIntroPage],
   declarations: [

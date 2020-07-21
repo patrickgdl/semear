@@ -76,8 +76,8 @@
   --ion-color-custom-tint: #39365a;
 
   /** fonts **/
-  --body-font: 'Inter';
-  --heading-font: 'Inter';
+  --body-font: 'Inter', sans-serif;
+  --heading-font: 'Inter', sans-serif;
   --ion-font-family: var(--body-font);
   /**toolbar**/
   --ion-toolbar-background: transparent;
