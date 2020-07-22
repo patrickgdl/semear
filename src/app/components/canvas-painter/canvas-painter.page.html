@@ -1,2 +1,35 @@
+<ion-row>
+  <ion-col *ngFor="let color of colors" [style.background]="color" class="color-block" tappable (click)="selectColor(color)"></ion-col>
+</ion-row>
+<ion-radio-group [(ngModel)]="selectedColor">
+  <ion-row>
+    <ion-col *ngFor="let color of colors" class="ion-text-center">
+      <ion-radio [value]="color"></ion-radio>
+    </ion-col>
+  </ion-row>
+</ion-radio-group>
 
- 
+<ion-range min="2" max="20" color="primary" [(ngModel)]="lineWidth">
+  <ion-icon size="small" slot="start" name="brush"></ion-icon>
+  <ion-icon slot="end" name="brush"></ion-icon>
+</ion-range>
+
+<canvas
+  #canvas
+  (mousedown)="startDrawing($event)"
+  (touchstart)="startDrawing($event)"
+  (touchmove)="moved($event)"
+  (mousemove)="moved($event)"
+  (mouseup)="endDrawing()"
+  (touchend)="endDrawing()"
+></canvas>
+
+<ion-button expand="full" (click)="setBackground()">
+  <ion-icon slot="start" name="image"></ion-icon>
+  Colocar Imagem no Background
+</ion-button>
+
+<ion-button expand="full" (click)="exportCanvasImage()">
+  <ion-icon slot="start" name="download"></ion-icon>
+  Export como Imagem
+</ion-button>

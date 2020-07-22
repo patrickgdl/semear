@@ -11,25 +11,23 @@ import { pairwise, switchMap, takeUntil } from 'rxjs/operators';
 export class CanvasPage implements AfterViewInit {
   @ViewChild('canvas', { static: true }) public canvas: ElementRef;
 
-  @Input() public width = 345;
-  @Input() public height = 400;
+  @Input() width: number;
+  @Input() height = 400;
 
-  private cx: CanvasRenderingContext2D;
+  private ctx: CanvasRenderingContext2D;
 
-  constructor(private platform: Platform) {
-
-  }
+  constructor(private platform: Platform) {}
 
   ngAfterViewInit() {
     const canvasEl: HTMLCanvasElement = this.canvas.nativeElement;
-    this.cx = canvasEl.getContext('2d');
+    this.ctx = canvasEl.getContext('2d');
 
-    canvasEl.width = this.plt.width() + '';
+    canvasEl.width = this.platform.width();
     canvasEl.height = this.height;
 
-    this.cx.lineWidth = 3;
-    this.cx.lineCap = 'round';
-    this.cx.strokeStyle = '#000';
+    this.ctx.lineWidth = 3;
+    this.ctx.lineCap = 'round';
+    this.ctx.strokeStyle = '#000';
 
     this.captureEvents(canvasEl);
   }
@@ -65,16 +63,16 @@ export class CanvasPage implements AfterViewInit {
   }
 
   private drawOnCanvas(prevPos: { x: number; y: number }, currentPos: { x: number; y: number }) {
-    if (!this.cx) {
+    if (!this.ctx) {
       return;
     }
 
-    this.cx.beginPath();
+    this.ctx.beginPath();
 
     if (prevPos) {
-      this.cx.moveTo(prevPos.x, prevPos.y); // from
-      this.cx.lineTo(currentPos.x, currentPos.y);
-      this.cx.stroke();
+      this.ctx.moveTo(prevPos.x, prevPos.y); // from
+      this.ctx.lineTo(currentPos.x, currentPos.y);
+      this.ctx.stroke();
     }
   }
 
