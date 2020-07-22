@@ -12,7 +12,9 @@ ion-content {
       text-overflow: ellipsis;
     }
     img {
-      height: 15vh !important;
+      height: 20vh !important;
+      width: 100%;
+      object-fit: cover;
     }
   }
 }
