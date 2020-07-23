@@ -2,25 +2,14 @@
 @import '~@ionic/angular/css/core.css';
 @import '~@ionic/angular/css/normalize.css';
 @import '~@ionic/angular/css/structure.css';
-@import '~@ionic/angular/css/typography.css';
 @import '~@ionic/angular/css/padding.css';
 @import '~@ionic/angular/css/float-elements.css';
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
-body {
-  font-family: var(--body-font);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-ion-title {
-  font-family: var(--heading-font);
-}
+// custom scss
+@import 'assets/scss/typography';
 
 /** can be used on ion-components, eg: <ion-button color="custom">Custom</ion-button>**/
 .ion-color-custom {
@@ -47,10 +36,6 @@ ion-title {
 
   text-align: center;
   color: var(--ion-color-primary);
-}
-
-.ion-page {
-  overflow: auto !important;
 }
 
 .swiper-container-3d .swiper-slide-shadow-bottom,

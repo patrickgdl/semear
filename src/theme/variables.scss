@@ -79,6 +79,7 @@
   --body-font: 'Inter', sans-serif;
   --heading-font: 'Inter', sans-serif;
   --ion-font-family: var(--body-font);
+
   /**toolbar**/
   --ion-toolbar-background: transparent;
 }
@@ -183,8 +184,7 @@
   
     --ion-item-background: #232048;
   }
-  
-  
+
   /*
    * Material Design Dark Theme
    * -------------------------------------------
@@ -231,21 +231,4 @@
 
 :root[mode='md'] {
   --ion-font-family: var(--body-font) !important;
-}
-
-@font-face {
-  font-family: 'HK Regular';
-  src: url('/assets/fonts/hk-grotesk/hk-grotesk.regular.ttf');
-}
-
-@font-face {
-  font-family: 'HK Medium';
-  src: url('/assets/fonts/hk-grotesk/hk-grotesk.medium.ttf');
-  font-weight: medium;
-}
-
-@font-face {
-  font-family: 'HK Bold';
-  src: url('/assets/fonts/hk-grotesk/hk-grotesk.bold.ttf');
-  font-weight: bold;
 }

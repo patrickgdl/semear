@@ -1,63 +1,19 @@
 <ion-content padding>
-    <ion-item>
-      <ion-input></ion-input>
-      <ion-icon src="assets/icon/button-search.svg" slot="end"></ion-icon>
-    </ion-item>
-  
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <div class="ion-text-start ion-text-uppercase ion-margin-top">
-            <span class="action-title">Histórias</span>
-          </div>
-        </ion-col>
-        <ion-col>
-          <div class="ion-text-end ion-text-uppercase ion-margin-top">
-            <span class="action-more">Ver mais</span>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  
-    <ion-slides [options]="slideConfig">
-      <ion-slide *ngFor="let story of stories$ | async">
-        <ion-card no-margin button (click)="goToDetail(story.uid)">
-          <img decoding="async" part="image" [src]="story.coverURL" />
-          <ion-card-header>
-            <p class="card-category">{{ story.category }}</p>
-            <p class="card-title">{{ story.name }}</p>
-            <p class="card-author">{{ story.author }} ({{ story.date | date: 'yyyy' }})</p>
-          </ion-card-header>
-        </ion-card>
-      </ion-slide>
-    </ion-slides>
-  
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <div class="ion-text-start ion-text-uppercase ion-margin-top">
-            <span class="action-title">Sugestões</span>
-          </div>
-        </ion-col>
-        <ion-col>
-          <div class="ion-text-end ion-text-uppercase ion-margin-top">
-            <span class="action-more">Ver mais</span>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  
-    <ion-slides [options]="slideConfig">
-      <ion-slide *ngFor="let story of stories$ | async">
-        <ion-card no-margin button (click)="goToDetail(story.uid)">
-          <img decoding="async" part="image" [src]="story.coverURL" />
-          <ion-card-header>
-            <p class="card-category">{{ story.category }}</p>
-            <p class="card-title">{{ story.name }}</p>
-            <p class="card-author">{{ story.author }} ({{ story.date | date: 'yyyy' }})</p>
-          </ion-card-header>
-        </ion-card>
-      </ion-slide>
-    </ion-slides>
-  </ion-content>
-  
+  <ion-item>
+    <ion-input></ion-input>
+    <ion-icon src="assets/icon/button-search.svg" slot="end"></ion-icon>
+  </ion-item>
+
+  <ion-slides [options]="slideConfig">
+    <ion-slide *ngFor="let story of stories$ | async">
+      <ion-card no-margin button (click)="goToDetail(story.uid)">
+        <img decoding="async" part="image" [src]="story.coverURL" />
+        <ion-card-header>
+          <p class="card-category">{{ story.category }}</p>
+          <p class="card-title">{{ story.name }}</p>
+          <p class="card-author">{{ story.author }} ({{ story.date | date: 'yyyy' }})</p>
+        </ion-card-header>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

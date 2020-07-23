@@ -14,9 +14,11 @@
 
   <ion-list>
     <ion-item lines="none" *ngFor="let list of lists" (click)="navigateToChildren(story.uid, list.url)">
+
       <ion-avatar slot="start">
         <img [src]="list.image">
       </ion-avatar>
+
       <ion-label>
         <p>{{ list.text }}</p>
         <ion-text>{{ list.label }}</ion-text>
