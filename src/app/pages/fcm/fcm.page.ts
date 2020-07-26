@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { DbService } from '../../services/db.service';
+import { DbService } from '../../services/firebase/db.service';
 import { FcmService } from '../../services/fcm.service';
 
 @Component({

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Story } from './../../../../models/story.interface';
-import { DbService } from './../../../../services/db.service';
+import { DbService } from '../../../../services/firebase/db.service';
 import { LoadingService } from './../../../../services/loading.service';
 
 @Component({

@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'tutorial',
-    loadChildren: () => import('./tutorial/tutorial.module').then((m) => m.TutorialPageModule)
+    loadChildren: () => import('./pages/tutorial/tutorial.module').then((m) => m.TutorialPageModule)
   },
   { path: 'fcm', loadChildren: () => import('./pages/fcm/fcm.module').then((m) => m.FcmPageModule) },
   { path: 'story-canvas', loadChildren: () => import('./pages/story-canvas/story-canvas.module').then((m) => m.StoryCanvasModule) }

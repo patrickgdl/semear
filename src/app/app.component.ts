@@ -4,7 +4,7 @@ import { Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { AuthService } from './services/auth.service';
+import { AuthService } from './services/firebase/auth.service';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { FcmService } from './services/fcm.service';

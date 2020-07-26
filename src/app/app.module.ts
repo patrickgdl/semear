@@ -16,6 +16,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { WebSpeechModule } from './components/web-speech/web-speech.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,9 +30,10 @@ import { AppComponent } from './app.component';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireFunctionsModule,
-    AngularFireMessagingModule
+    AngularFireMessagingModule,
+    WebSpeechModule
   ],
   providers: [Firebase, GooglePlus, StatusBar, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

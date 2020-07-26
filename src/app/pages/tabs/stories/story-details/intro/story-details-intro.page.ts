@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Story } from './../../../../../models/story.interface';
-import { DbService } from './../../../../../services/db.service';
+import { DbService } from '../../../../../services/firebase/db.service';
 
 @Component({
   selector: 'app-story-details-intro',
