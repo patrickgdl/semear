@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { WebSpeechComponent } from './web-speech.component';
+import { WebSpeechPage } from './web-speech.page';
 
-describe('WebSpeechComponent', () => {
-  let component: WebSpeechComponent;
-  let fixture: ComponentFixture<WebSpeechComponent>;
+describe('WebSpeechPage', () => {
+  let component: WebSpeechPage;
+  let fixture: ComponentFixture<WebSpeechPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WebSpeechComponent ],
+      declarations: [ WebSpeechPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(WebSpeechComponent);
+    fixture = TestBed.createComponent(WebSpeechPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
