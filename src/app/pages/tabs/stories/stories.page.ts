@@ -14,7 +14,8 @@ import { DbService } from './../../../services/db.service';
 export class StoriesPage {
   stories$: Observable<Story[]>;
   slideConfig = {
-    slidesPerView: 2.2,
+    centeredSlides: true,
+    slidesPerView: 'auto'
   };
 
   constructor(private dbService: DbService, private router: Router) {
