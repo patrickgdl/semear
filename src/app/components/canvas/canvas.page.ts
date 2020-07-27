@@ -14,7 +14,7 @@ export class CanvasPage implements AfterViewInit {
   @Input() width: number;
   @Input() height = 400;
 
-  private ctx: CanvasRenderingContext2D;
+  private ctx: CanvasRenderingContext2D | null;
 
   constructor(private platform: Platform) {}
 
@@ -25,9 +25,11 @@ export class CanvasPage implements AfterViewInit {
     canvasEl.width = this.platform.width();
     canvasEl.height = this.height;
 
-    this.ctx.lineWidth = 3;
-    this.ctx.lineCap = 'round';
-    this.ctx.strokeStyle = '#000';
+    if (this.ctx) {
+      this.ctx.lineWidth = 3;
+      this.ctx.lineCap = 'round';
+      this.ctx.strokeStyle = '#000';
+    }
 
     this.captureEvents(canvasEl);
   }
@@ -43,7 +45,7 @@ export class CanvasPage implements AfterViewInit {
           );
         })
       )
-      .subscribe((res: [MouseEvent, MouseEvent]) => {
+      .subscribe((res: any) => {
         const prevPos = this.getMousePosition(canvasEl, res[0]);
         const currentPos = this.getMousePosition(canvasEl, res[1]);
         this.drawOnCanvas(prevPos, currentPos);
@@ -55,7 +57,7 @@ export class CanvasPage implements AfterViewInit {
           return fromEvent(canvasEl, 'touchmove').pipe(takeUntil(fromEvent(canvasEl, 'touchend')), pairwise());
         })
       )
-      .subscribe((res: [TouchEvent, TouchEvent]) => {
+      .subscribe((res: any) => {
         const prevPos = this.getTouchPosition(canvasEl, res[0]);
         const currentPos = this.getTouchPosition(canvasEl, res[1]);
         this.drawOnCanvas(prevPos, currentPos);

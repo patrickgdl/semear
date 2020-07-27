@@ -12,12 +12,12 @@ export class UtilsService {
 
   constructor() { }
 
-  private getFormattedDate(date, prefomattedDate = false, hideYear = false) {
+  private getFormattedDate(date: Date, prefomattedDate = false, hideYear = false) {
     const day = date.getDate();
     const month = this.MONTH_NAMES[date.getMonth()];
     const year = date.getFullYear();
     const hours = date.getHours();
-    let minutes = date.getMinutes();
+    let minutes = date.getMinutes() as number | string;
 
     if (minutes < 10) {
       // Adding leading zero to minutes
@@ -39,7 +39,7 @@ export class UtilsService {
     return `${day}. ${month} ${year}. at ${hours}:${minutes}`;
   }
 
-  public timeAgo(dateParam) {
+  public timeAgo(dateParam: number) {
     if (!dateParam) {
       return null;
     }
@@ -48,7 +48,7 @@ export class UtilsService {
     const DAY_IN_MS = 86400000; // 24 * 60 * 60 * 1000
     const today = new Date();
     const yesterday = new Date(today.getDay() - DAY_IN_MS);
-    const seconds = Math.round((today.getDay() - date) / 1000);
+    const seconds = Math.round((today.getDay()) / 1000);
     const minutes = Math.round(seconds / 60);
     const isToday = today.toDateString() === date.toDateString();
     const isYesterday = yesterday.toDateString() === date.toDateString();

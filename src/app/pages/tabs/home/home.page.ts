@@ -17,9 +17,7 @@ export class HomePage {
     slidesPerView: 2.2
   };
 
-  constructor(private dbService: DbService, private router: Router) {}
-
-  ionViewDidEnter() {
+  constructor(private dbService: DbService, private router: Router) {
     this.stories$ = this.dbService.collection$('stories').pipe(
       map((res) => {
         res.forEach((element) => {

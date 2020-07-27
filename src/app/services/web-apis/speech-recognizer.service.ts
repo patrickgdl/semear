@@ -4,11 +4,17 @@ import { SpeechEvent } from '@models/speech-event.enum';
 import { SpeechNotification } from '@models/speech-notification.interface';
 import { Observable } from 'rxjs';
 
+interface AppWindow extends Window {
+  webkitSpeechRecognition: any;
+}
+
+const { webkitSpeechRecognition }: AppWindow = (window as any) as AppWindow;
+
 @Injectable({
   providedIn: 'root'
 })
 export class SpeechRecognizerService {
-  recognition!: SpeechRecognition;
+  recognition: SpeechRecognition;
   language!: string;
   isListening = false;
 
@@ -16,7 +22,7 @@ export class SpeechRecognizerService {
 
   initialize(language: string): boolean {
     if ('webkitSpeechRecognition' in window) {
-      this.recognition = new window['webkitSpeechRecognition']();
+      this.recognition = new webkitSpeechRecognition();
       this.recognition.continuous = true;
       this.recognition.interimResults = true;
       this.setLanguage(language);
@@ -86,7 +92,6 @@ export class SpeechRecognizerService {
             });
           } else {
             interimContent += event.results[i][0].transcript;
-            // console.log('interim transcript', event, interimContent);
             this.ngZone.run(() => {
               observer.next({
                 event: SpeechEvent.InterimContent,

@@ -27,19 +27,19 @@ export class CanvasPainterPage implements AfterViewInit {
     this.canvasElement.height = 200;
   }
 
-  startDrawing(ev) {
+  startDrawing(mouseEvent: MouseEvent) {
     this.drawing = true;
     const canvasPosition = this.canvasElement.getBoundingClientRect();
 
-    this.saveX = ev.pageX - canvasPosition.x;
-    this.saveY = ev.pageY - canvasPosition.y;
+    this.saveX = mouseEvent.pageX - canvasPosition.x;
+    this.saveY = mouseEvent.pageY - canvasPosition.y;
   }
 
   endDrawing() {
     this.drawing = false;
   }
 
-  selectColor(color) {
+  selectColor(color: string) {
     this.selectedColor = color;
   }
 
@@ -53,7 +53,7 @@ export class CanvasPainterPage implements AfterViewInit {
     };
   }
 
-  moved(ev) {
+  moved(mouseEvent: MouseEvent) {
     if (!this.drawing) {
       return;
     }
@@ -61,8 +61,8 @@ export class CanvasPainterPage implements AfterViewInit {
     const canvasPosition = this.canvasElement.getBoundingClientRect();
     const ctx = this.canvasElement.getContext('2d');
 
-    const currentX = ev.pageX - canvasPosition.x;
-    const currentY = ev.pageY - canvasPosition.y;
+    const currentX = mouseEvent.pageX - canvasPosition.x;
+    const currentY = mouseEvent.pageY - canvasPosition.y;
 
     ctx.lineJoin = 'round';
     ctx.strokeStyle = this.selectedColor;
@@ -99,7 +99,7 @@ export class CanvasPainterPage implements AfterViewInit {
   }
 
   // https://forum.ionicframework.com/t/save-base64-encoded-image-to-specific-filepath/96180/3
-  b64toBlob(b64Data, contentType) {
+  b64toBlob(b64Data: string, contentType: string) {
     contentType = contentType || '';
     const sliceSize = 512;
     const byteCharacters = atob(b64Data);

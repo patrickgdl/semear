@@ -13,7 +13,7 @@ import { from } from 'rxjs';
   providedIn: 'root'
 })
 export class FcmService {
-  token;
+  token: any;
 
   constructor(
     private afMessaging: AngularFireMessaging,
@@ -29,7 +29,7 @@ export class FcmService {
     } catch (e) {}
   }
 
-  async makeToast(message) {
+  async makeToast(message: string) {
     const toast = await this.toastController.create({
       message,
       duration: 5000,
@@ -79,7 +79,7 @@ export class FcmService {
     return messages$.pipe(tap(v => this.showMessages(v)));
   }
 
-  private showMessages(payload) {
+  private showMessages(payload: any) {
     let body;
     if (this.platform.is('android')) {
       body = payload.body;
@@ -90,14 +90,14 @@ export class FcmService {
     this.makeToast(body);
   }
 
-  sub(topic) {
+  sub(topic: string) {
     this.fun
       .httpsCallable('subscribeToTopic')({ topic, token: this.token })
       .pipe(tap(_ => this.makeToast(`subscribed to ${topic}`)))
       .subscribe();
   }
 
-  unsub(topic) {
+  unsub(topic: string) {
     this.fun
       .httpsCallable('unsubscribeFromTopic')({ topic, token: this.token })
       .pipe(tap(_ => this.makeToast(`unsubscribed from ${topic}`)))

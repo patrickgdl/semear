@@ -6,6 +6,8 @@
     "paths": {
       "@models/*": ["app/models/*"],
     },
+    "strict": true,
+    "strictPropertyInitialization": false,
     "sourceMap": true,
     "declaration": false,
     "module": "esnext",

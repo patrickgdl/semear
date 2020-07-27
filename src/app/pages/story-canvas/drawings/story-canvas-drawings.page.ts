@@ -22,7 +22,7 @@ export class StoryCanvasDrawingsPage implements OnInit {
     direction: 'vertical',
     on: {
       beforeInit() {
-        const swiper = this;
+        const swiper = this as any;
 
         swiper.classNames.push(`${swiper.params.containerModifierClass}coverflow`);
         swiper.classNames.push(`${swiper.params.containerModifierClass}3d`);
@@ -31,7 +31,7 @@ export class StoryCanvasDrawingsPage implements OnInit {
         swiper.originalParams.watchSlidesProgress = true;
       },
       setTranslate() {
-        const swiper = this;
+        const swiper = this as any;
         const { width: swiperWidth, height: swiperHeight, slides, $wrapperEl, slidesSizesGrid, $ } = swiper;
         const params = swiper.params.coverflowEffect;
         const isHorizontal = swiper.isHorizontal();
@@ -103,8 +103,8 @@ export class StoryCanvasDrawingsPage implements OnInit {
           ws.perspectiveOrigin = `${center}px 50%`;
         }
       },
-      setTransition(duration) {
-        const swiper = this;
+      setTransition(duration: number) {
+        const swiper = this as any;
         swiper.slides
           .transition(duration)
           .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')

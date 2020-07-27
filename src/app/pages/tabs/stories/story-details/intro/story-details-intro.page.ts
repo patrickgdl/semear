@@ -12,42 +12,41 @@ import { DbService } from '../../../../../services/firebase/db.service';
   styleUrls: ['./story-details-intro.page.scss']
 })
 export class StoryDetailsIntroPage implements OnInit {
-
   story$: Observable<Story>;
   lists = [
     {
-      'text': 'Escrever',
-      'label': 'Continue a história do seu jeito',
-      'image': 'assets/icon/writer.svg',
-      'url': '/writer'
+      text: 'Escrever',
+      label: 'Continue a história do seu jeito',
+      image: 'assets/icon/writer.svg',
+      url: '/writer'
     },
     {
-      'text': 'Fanfic',
-      'label': 'Crie sua história do zero',
-      'image': 'assets/icon/fanfic.svg',
-      'url': '/fanfic'
+      text: 'Fanfic',
+      label: 'Crie sua história do zero',
+      image: 'assets/icon/fanfic.svg',
+      url: '/fanfic'
     },
     {
-      'text': 'Ilustrar',
-      'label': 'Ilustre a história com o seu desenho',
-      'image': 'assets/icon/ilustrater.svg',
-      'url': '/illustrator'
+      text: 'Ilustrar',
+      label: 'Ilustre a história com o seu desenho',
+      image: 'assets/icon/ilustrater.svg',
+      url: '/illustrator'
     },
     {
-      'text': 'Gravar',
-      'label': 'A história com sua voz',
-      'image': 'assets/icon/recorder.svg',
-      'url': '/recorder'
+      text: 'Gravar',
+      label: 'A história com sua voz',
+      image: 'assets/icon/recorder.svg',
+      url: '/recorder'
     },
     {
-      'text': 'Colorir',
-      'label': 'Pinte a história com suas cores preferidas',
-      'image': 'assets/icon/painter.svg',
-      'url': '/painter'
+      text: 'Colorir',
+      label: 'Pinte a história com suas cores preferidas',
+      image: 'assets/icon/painter.svg',
+      url: '/painter'
     }
   ];
 
-  constructor(private router: Router, private dbService: DbService) { }
+  constructor(private router: Router, private dbService: DbService) {}
 
   ngOnInit() {
     const uid = this.router.url.split('/')[2];

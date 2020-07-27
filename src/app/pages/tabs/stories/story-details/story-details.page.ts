@@ -11,7 +11,6 @@ import { LoadingService } from './../../../../services/loading.service';
   styleUrls: ['story-details.page.scss']
 })
 export class StoryDetailsPage implements OnInit {
-
   story: Story;
   segment: string;
 
@@ -19,24 +18,23 @@ export class StoryDetailsPage implements OnInit {
     private route: ActivatedRoute,
     private dbService: DbService,
     private router: Router,
-    private loadingService: LoadingService,
-  ) { }
+    private loadingService: LoadingService
+  ) {}
 
   ngOnInit() {
     this.loadingService.present('Carregando história...');
     const id = this.route.snapshot.paramMap.get('id');
-    this.dbService.doc$(`stories/${id}`)
-      .subscribe(
-        (data: Story) => {
-          data.summary = data.summary.split('\\n').join('\n');
-          this.story = data;
-          this.segmentChanged(this.router.url.split('/')[3]);
-          this.loadingService.dismiss();
-        },
-        error => {
-          this.loadingService.dismiss();
-        }
-      );
+    this.dbService.doc$(`stories/${id}`).subscribe(
+      (data: Story) => {
+        data.summary = data.summary.split('\\n').join('\n');
+        this.story = data;
+        this.segmentChanged(this.router.url.split('/')[3]);
+        this.loadingService.dismiss();
+      },
+      (error) => {
+        this.loadingService.dismiss();
+      }
+    );
   }
 
   segmentChanged(segment = 'intro') {
@@ -52,5 +50,4 @@ export class StoryDetailsPage implements OnInit {
       this.router.navigate([`/stories/${id}/discussion`]);
     }
   }
-
 }

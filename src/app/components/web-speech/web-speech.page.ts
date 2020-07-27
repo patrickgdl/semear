@@ -15,7 +15,7 @@ import { SpeechRecognizerService } from '../../services/web-apis/speech-recogniz
 export class WebSpeechPage implements OnInit {
   languages: string[] = languages;
   currentLanguage: string = defaultLanguage; // Set the default language
-  totalTranscript: string; // The variable to accumulate all the recognized texts
+  totalTranscript: string | undefined; // The variable to accumulate all the recognized texts
 
   transcript$: Observable<string>; // Shows the transcript in "real-time"
   listening$: Observable<boolean>; // Changes to 'true'/'false' when the recognizer starts/stops
@@ -26,7 +26,6 @@ export class WebSpeechPage implements OnInit {
 
   ngOnInit(): void {
     // Initialize the speech recognizer with the default language
-    console.log(this.currentLanguage);
     this.speechService.initialize(this.currentLanguage);
     // Prepare observables to "catch" events, results and errors.
     this.initRecognition();
@@ -60,7 +59,6 @@ export class WebSpeechPage implements OnInit {
     // Also, for every "Final Result" (from the speech), the code will append that text to the existing Text Area component.
     this.transcript$ = this.speechService.onResult().pipe(
       tap((notification) => {
-        console.log(notification.event);
         if (notification.event === SpeechEvent.FinalContent) {
           this.totalTranscript = this.totalTranscript ? `${this.totalTranscript}\n${notification.content?.trim()}` : notification.content;
         }

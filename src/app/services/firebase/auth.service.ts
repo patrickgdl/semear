@@ -10,6 +10,14 @@ import { map, switchMap, take } from 'rxjs/operators';
 
 import { DbService } from './db.service';
 
+interface CredentialUser {
+  uid: string;
+  email: string;
+  photoURL: string;
+  displayName: string;
+  isAnonymous: boolean;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -41,21 +49,15 @@ export class AuthService {
 
   async anonymousLogin() {
     const credential = await this.afAuth.signInAnonymously();
-    return await this.updateUserData(credential.user);
+    return await this.updateUserData(credential.user as CredentialUser);
   }
 
-  private updateUserData({ uid, email, displayName, photoURL, isAnonymous }) {
+  private updateUserData(credentialUser: CredentialUser) {
     // Sets user data to firestore on login
 
-    const path = `users/${uid}`;
+    const path = `users/${credentialUser.uid}`;
 
-    const data = {
-      uid,
-      email,
-      displayName,
-      photoURL,
-      isAnonymous
-    };
+    const data = credentialUser;
 
     return this.db.updateAt(path, data);
   }
@@ -67,7 +69,7 @@ export class AuthService {
 
   //// GOOGLE AUTH
 
-  setRedirect(val) {
+  setRedirect(val: any) {
     this.storage.set('authRedirect', val);
   }
 
@@ -104,7 +106,7 @@ export class AuthService {
     const result = await this.afAuth.getRedirectResult();
 
     if (result.user) {
-      await this.updateUserData(result.user);
+      await this.updateUserData(result.user as CredentialUser);
     }
 
     await loading.dismiss();

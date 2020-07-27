@@ -18,9 +18,6 @@ export class StoriesPage {
   };
 
   constructor(private dbService: DbService, private router: Router) {
-  }
-
-  ionViewDidEnter() {
     this.stories$ = this.dbService.collection$('stories').pipe(
       map((res) => {
         res.forEach((element) => {
@@ -30,6 +27,10 @@ export class StoriesPage {
         return res;
       })
     );
+  }
+
+  ionViewDidEnter() {
+
   }
 
   goToDetail(uid: string) {
