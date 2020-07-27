@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Story } from './../../../models/story.interface';
-import { DbService } from './../../../services/db.service';
+import { DbService } from '../../../services/firebase/db.service';
 
 @Component({
   selector: 'app-stories',
@@ -19,9 +19,6 @@ export class StoriesPage {
   };
 
   constructor(private dbService: DbService, private router: Router) {
-  }
-
-  ionViewDidEnter() {
     this.stories$ = this.dbService.collection$('stories').pipe(
       map((res) => {
         res.forEach((element) => {
@@ -31,6 +28,10 @@ export class StoriesPage {
         return res;
       })
     );
+  }
+
+  ionViewDidEnter() {
+
   }
 
   goToDetail(uid: string) {

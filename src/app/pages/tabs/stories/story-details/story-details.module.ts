@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { WebSpeechModule } from 'app/components/web-speech/web-speech.module';
 
 import { StoryDetailsFanficPage } from '../story-details/fanfic/story-details-fanfic.page';
 import { StoryDetailsIllustratorPage } from '../story-details/illustrator/story-details-illustrator.page';
@@ -16,12 +17,7 @@ import { StoryDetailsIntroPage } from './intro/story-details-intro.page';
 import { StoryDetailsPage } from './story-details.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    IonicModule,
-    CanvasModule,
-    CanvasPainterModule
-  ],
+  imports: [CommonModule, IonicModule, CanvasModule, CanvasPainterModule, WebSpeechModule],
   exports: [StoryDetailsPage, StoryDetailsDiscussionPage, StoryDetailsIntroPage],
   declarations: [
     StoryDetailsPage,

@@ -4,10 +4,10 @@ import { map, switchMap } from 'rxjs/operators';
 
 // usage => .pipe(leftJoinDocument(afs, 'user', 'users'))
 
-export const leftJoinDocument = (afs: AngularFirestore, fieldToJoin, collection) => <T>(source: Observable<T[]>) =>
+export const leftJoinDocument = (afs: AngularFirestore, fieldToJoin: string, collection: any) => <T>(source: Observable<T[]>) =>
     defer(() => {
         // Operator state
-        let collectionData;
+        let collectionData: any[];
         const cache = new Map();
 
         return source.pipe(

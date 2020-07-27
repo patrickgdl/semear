@@ -1,0 +1,53 @@
+<section>
+  <ion-card *ngIf="errorMessage$ | async as errorMessage">
+    <ion-card-content>
+      {{ errorMessage }}
+    </ion-card-content>
+  </ion-card>
+</section>
+
+<!-- <section>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        Selecione seu Idioma
+      </ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Idioma</ion-label>
+      <ion-select placeholder="Selecione um" (ionChange)="selectLanguage($event)">
+        <ion-select-option *ngFor="let language of languages">{{ language }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</section> -->
+
+<section>
+  <ion-button expand="full" *ngIf="listening$ | async; else mic" (click)="stop()">
+    <ion-icon name="stop-circle-outline"></ion-icon>
+    Parar
+  </ion-button>
+
+  <ng-template #mic>
+    <ion-button expand="full" (click)="start()">
+      <ion-icon slot="start" name="chatbox-ellipses-outline"></ion-icon>
+      Gravar
+    </ion-button>
+  </ng-template>
+</section>
+
+<section *ngIf="transcript$ | async">
+  <ion-card>
+    <ion-card-content>
+      {{ transcript$ | async }}
+    </ion-card-content>
+  </ion-card>
+</section>
+
+<section>
+  <ion-item>
+    <ion-label position="stacked">Resultados</ion-label>
+    <ion-textarea [value]="totalTranscript || ''" rows="15"></ion-textarea>
+  </ion-item>
+</section>

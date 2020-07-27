@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class TutorialPage {
   constructor(private storage: Storage, private router: Router) {}
 
-  @ViewChild('slides', { static: true }) slides;
+  @ViewChild('slides', { static: true }) slides: HTMLIonSlidesElement;
 
   async finish() {
     await this.storage.set('tutorialComplete', true);

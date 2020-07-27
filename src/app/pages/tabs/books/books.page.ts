@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Story } from '@models/story.interface';
-import { DbService } from 'app/services/db.service';
+import { DbService } from 'app/services/firebase/db.service';
 import { Observable } from 'rxjs';
 
 @Component({

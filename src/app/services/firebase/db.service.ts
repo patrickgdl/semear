@@ -11,22 +11,22 @@ type CollectionPredicate<T> = string | AngularFirestoreCollection<T>;
 export class DbService {
   constructor(private afs: AngularFirestore) { }
 
-  collection$(path, query?): Observable<any[]> {
+  collection$(path: string, query?: QueryFn): Observable<any[]> {
     return this.afs
       .collection(path, query)
       .snapshotChanges()
       .pipe(
         map(actions => {
           return actions.map(a => {
-            const data: Object = a.payload.doc.data();
+            const data = a.payload.doc.data();
             const id = a.payload.doc.id;
-            return { id, ...data };
+            return { id, ...data as Object };
           });
         })
       );
   }
 
-  doc$(path): Observable<any> {
+  doc$(path: string): Observable<any> {
     return this.afs
       .doc(path)
       .snapshotChanges()
@@ -59,7 +59,7 @@ export class DbService {
    *
    * Deletes document from Firestore
    **/
-  delete(path) {
+  delete(path: string) {
     return this.afs.doc(path).delete();
   }
 

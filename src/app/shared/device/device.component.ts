@@ -9,8 +9,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./device.component.scss']
 })
 export class DeviceComponent implements OnInit {
-  device;
-
   constructor() {}
 
   ngOnInit() {

@@ -7,10 +7,9 @@ import { ModalController, IonSlides } from '@ionic/angular';
   styleUrls: ['./story-quiz.page.scss']
 })
 export class StoryQuizPage implements OnInit {
+  @ViewChild('slides', { static: false }) slides: IonSlides;
 
-  // @ViewChild('slides', { static: false }) private slides: IonSlides;
-  @ViewChild('slides') slides;
-  answerSelected: number;
+  answerSelected: number | null;
   page = 1;
   hideButton: number;
 
@@ -35,7 +34,7 @@ export class StoryQuizPage implements OnInit {
   //   });
   // }
 
-  answer(answer) {
+  answer(answer: number) {
     this.answerSelected = answer;
   }
 
@@ -44,7 +43,7 @@ export class StoryQuizPage implements OnInit {
     this.slides.slideNext();
   }
 
-  changeSlide(event) {
+  changeSlide(event: any) {
     this.page++;
   }
 
