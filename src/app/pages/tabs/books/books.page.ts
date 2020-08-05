@@ -19,7 +19,7 @@ export class BooksPage implements OnInit {
   constructor(private dbService: DbService, private router: Router) {}
 
   ngOnInit() {
-    this.stories$ = this.dbService.collection$('stories');
+    this.stories$ = this.dbService.col$('stories');
   }
 
   goToDetail(uid: string) {

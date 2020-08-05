@@ -19,7 +19,7 @@ export class StoriesPage {
   };
 
   constructor(private dbService: DbService, private router: Router) {
-    this.stories$ = this.dbService.collection$('stories').pipe(
+    this.stories$ = this.dbService.col$<Story>('stories').pipe(
       map((res) => {
         res.forEach((element) => {
           element.content = element.content.split('\\n').join('\n');

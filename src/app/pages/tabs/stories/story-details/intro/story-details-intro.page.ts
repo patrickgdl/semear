@@ -50,7 +50,7 @@ export class StoryDetailsIntroPage implements OnInit {
 
   ngOnInit() {
     const uid = this.router.url.split('/')[2];
-    this.story$ = this.dbService.doc$(`stories/${uid}`).pipe(
+    this.story$ = this.dbService.doc$<Story>(`stories/${uid}`).pipe(
       map((data) => {
         data.content = data.content.split('\\n').join('\n');
         return data;

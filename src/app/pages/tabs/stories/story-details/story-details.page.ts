@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
-import { Story } from './../../../../models/story.interface';
 import { DbService } from '../../../../services/firebase/db.service';
+import { Story } from './../../../../models/story.interface';
 import { LoadingService } from './../../../../services/loading.service';
 
 @Component({
@@ -11,8 +13,9 @@ import { LoadingService } from './../../../../services/loading.service';
   styleUrls: ['story-details.page.scss']
 })
 export class StoryDetailsPage implements OnInit {
-  story: Story;
+  story$: Observable<Story>;
   segment: string;
+  imageUrlStyle = `linear-gradient(162deg, rgba(56, 70, 108, .8) 20%, rgba(56, 70, 108, .8) 100%), url('$url') top no-repeat`;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,17 +26,15 @@ export class StoryDetailsPage implements OnInit {
 
   ngOnInit() {
     this.loadingService.present('Carregando história...');
+
     const id = this.route.snapshot.paramMap.get('id');
-    this.dbService.doc$(`stories/${id}`).subscribe(
-      (data: Story) => {
-        data.summary = data.summary.split('\\n').join('\n');
-        this.story = data;
+
+    this.story$ = this.dbService.doc$<Story>(`stories/${id}`).pipe(
+      tap((data) => {
+        this.imageUrlStyle = this.imageUrlStyle.replace('$url', data.coverURL);
         this.segmentChanged(this.router.url.split('/')[3]);
         this.loadingService.dismiss();
-      },
-      (error) => {
-        this.loadingService.dismiss();
-      }
+      })
     );
   }
 
