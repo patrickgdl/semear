@@ -1,33 +1,38 @@
-<ion-toolbar>
-  <ion-buttons slot="start">
-    <ion-back-button defaultHref="stories">História</ion-back-button>
-  </ion-buttons>
-  <ion-title>
-    História
-  </ion-title>
-</ion-toolbar>
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="stories">História</ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button expand="block" fill="clear" shape="round">
+        <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      História
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
-  <ion-text class="ion-text-center">
-    <h1 class="ion-no-margin">{{ story?.name }}</h1>
-    <h5 class="ion-margin-top">4 de 8 lições</h5>
-  </ion-text>
+  <div class="main-content">
+    <ion-text class="ion-text-center">
+      <h1 class="ion-no-margin">{{ story?.name }}</h1>
+      <h5 class="ion-margin-top">4 de 8 lições</h5>
+    </ion-text>
 
-  <img [src]="story?.coverURL" class="ion-margin-vertical" />
+    <img [src]="story?.coverURL" class="ion-margin-vertical" />
 
-  <ion-segment (ionChange)="segmentChanged($event.target.value)" mode="ios">
-    <ion-segment-button value="intro" [class]="segment === 'intro' ? 'segment-button-checked' : ''">
-      <ion-label class="ion-text-uppercase">História</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="games" [class]="segment === 'games' ? 'segment-button-checked' : ''">
-      <ion-label class="ion-text-uppercase">Jogos</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="discussion" [class]="segment === 'discussion' ? 'segment-button-checked' : ''">
-      <ion-label class="ion-text-uppercase">Discussão</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-
-  <ion-content>
-    <ion-router-outlet></ion-router-outlet>
-  </ion-content>
+    <ion-segment (ionChange)="segmentChanged($event.target.value)" mode="ios">
+      <ion-segment-button value="intro" [class]="segment === 'intro' ? 'segment-button-checked' : ''">
+        <ion-label class="ion-text-uppercase">História</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="games" [class]="segment === 'games' ? 'segment-button-checked' : ''">
+        <ion-label class="ion-text-uppercase">Jogos</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="discussion" [class]="segment === 'discussion' ? 'segment-button-checked' : ''">
+        <ion-label class="ion-text-uppercase">Discussão</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
 </ion-content>
