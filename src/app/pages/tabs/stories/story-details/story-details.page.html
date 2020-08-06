@@ -22,6 +22,12 @@
         <label class="ion-margin-vertical ion-text-uppercase upper-label">{{story?.author}}</label>
       </ion-text>
 
+      <star-rating
+        rating="3"
+        fontSize="32px"
+      >
+      </star-rating>
+
       <ion-segment (ionChange)="segmentChanged($event.target.value)" mode="ios">
         <ion-segment-button value="intro" [class]="segment === 'intro' ? 'segment-button-checked' : ''">
           <ion-label class="ion-text-uppercase">História</ion-label>

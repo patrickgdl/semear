@@ -11,13 +11,14 @@ import { StoryDetailsRecorderPage } from '../story-details/recorder/story-detail
 import { StoryDetailsWriterPage } from '../story-details/writer/story-details-writer.page';
 import { CanvasPainterModule } from './../../../../components/canvas-painter/canvas-painter.module';
 import { CanvasModule } from './../../../../components/canvas/canvas.module';
+import { StarRatingModule } from './../../../../components/star-rating/start-rating.module';
 import { StoryDetailsDiscussionPage } from './discussion/story-details-discussion.page';
 import { StoryDetailsGamesPage } from './games/story-details-games.page';
 import { StoryDetailsIntroPage } from './intro/story-details-intro.page';
 import { StoryDetailsPage } from './story-details.page';
 
 @NgModule({
-  imports: [CommonModule, IonicModule, CanvasModule, CanvasPainterModule, WebSpeechModule],
+  imports: [CommonModule, IonicModule, CanvasModule, CanvasPainterModule, WebSpeechModule, StarRatingModule],
   exports: [StoryDetailsPage, StoryDetailsDiscussionPage, StoryDetailsIntroPage],
   declarations: [
     StoryDetailsPage,
