@@ -3,10 +3,10 @@
     <ion-header class="ion-no-border">
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-back-button defaultHref="stories"></ion-back-button>
+          <ion-back-button color="secondary" defaultHref="stories"></ion-back-button>
         </ion-buttons>
         <ion-buttons slot="end">
-          <ion-button expand="block" fill="clear" shape="round">
+          <ion-button expand="block" fill="clear" shape="round" color="secondary">
             <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
           </ion-button>
         </ion-buttons>
@@ -22,11 +22,7 @@
         <label class="ion-margin-vertical ion-text-uppercase upper-label">{{story?.author}}</label>
       </ion-text>
 
-      <star-rating
-        rating="3"
-        fontSize="32px"
-      >
-      </star-rating>
+      <star-rating rating="4" fontSize="17px" [readonly]="true"> </star-rating>
 
       <ion-segment (ionChange)="segmentChanged($event.target.value)" mode="ios">
         <ion-segment-button value="intro" [class]="segment === 'intro' ? 'segment-button-checked' : ''">
