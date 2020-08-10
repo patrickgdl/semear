@@ -5,10 +5,11 @@
 @import '~@ionic/angular/css/padding.css';
 @import '~@ionic/angular/css/float-elements.css';
 @import '~@ionic/angular/css/text-alignment.css';
-@import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
 // custom scss
+@import 'assets/scss/font-weight';
+@import 'assets/scss/text-transformation';
 @import 'assets/scss/typography';
 
 /** can be used on ion-components, eg: <ion-button color="custom">Custom</ion-button>**/
@@ -25,21 +26,10 @@ ion-card {
   border-radius: 15px;
 }
 
-ion-title {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 17px;
-  padding-left: 0px;
-  margin-left: -27px;
-  // identical to box height
-
-  text-align: center;
-  color: var(--ion-color-primary);
-}
-
 .swiper-container-3d .swiper-slide-shadow-bottom,
-.swiper-container-3d .swiper-slide-shadow-top {
+.swiper-container-3d .swiper-slide-shadow-top,
+.swiper-container-3d .swiper-slide-shadow-left,
+.swiper-container-3d .swiper-slide-shadow-right {
   background-image: none;
 }
 

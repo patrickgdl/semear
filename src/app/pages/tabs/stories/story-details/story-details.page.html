@@ -15,22 +15,25 @@
 
     <ion-content>
       <ion-text>
-        <h5 class="ion-no-margin">{{ story?.name }}</h5>
+        <h5 class="ion-margin-bottom">{{ story?.name }}</h5>
       </ion-text>
 
       <ion-text color="primary">
-        <label class="ion-margin-vertical ion-text-uppercase upper-label">{{story?.author}}</label>
+        <p class="ion-margin-vertical ion-text-uppercase upper-label">{{story?.author}}</p>
       </ion-text>
 
-      <star-rating rating="4" fontSize="17px" [readonly]="true"> </star-rating>
-
+      <ion-text class="ion-margin-vertical">
+        <star-rating rating="4" fontSize="17px" [readonly]="true"> </star-rating>
+      </ion-text>
       <ion-segment (ionChange)="segmentChanged($event.target.value)" mode="ios">
         <ion-segment-button value="intro" [class]="segment === 'intro' ? 'segment-button-checked' : ''">
           <ion-label class="ion-text-uppercase">História</ion-label>
         </ion-segment-button>
+
         <ion-segment-button value="games" [class]="segment === 'games' ? 'segment-button-checked' : ''">
           <ion-label class="ion-text-uppercase">Jogos</ion-label>
         </ion-segment-button>
+
         <ion-segment-button value="discussion" [class]="segment === 'discussion' ? 'segment-button-checked' : ''">
           <ion-label class="ion-text-uppercase">Discussão</ion-label>
         </ion-segment-button>

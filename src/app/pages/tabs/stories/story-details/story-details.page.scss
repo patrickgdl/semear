@@ -1,6 +1,5 @@
-ion-content {
+ion-header + ion-content {
   transform: translate3d(0, 140px, 0);
-    -bottom: 30px;
   --padding-end: 30px;
   --padding-start: 30px;
   --padding-top: 30px;
