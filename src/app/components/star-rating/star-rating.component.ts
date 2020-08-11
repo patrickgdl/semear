@@ -6,7 +6,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 @Component({
   selector: 'star-rating',
   template: `
-    <div class="rating">
+    <p class="rating">
       <ion-button
         fill="clear"
         [id]="index"
@@ -28,7 +28,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
           }}"
         ></ion-icon>
       </ion-button>
-    </div>
+    </p>
   `,
   styles: [
     `

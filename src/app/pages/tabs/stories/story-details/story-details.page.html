@@ -13,7 +13,10 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content>
+    <ion-content
+      [scrollEvents]="true"
+      (ionScroll)="handleScroll($event)"
+    >
       <ion-text>
         <h5 class="ion-margin-bottom">{{ story?.name }}</h5>
       </ion-text>
@@ -22,9 +25,8 @@
         <p class="ion-margin-vertical ion-text-uppercase upper-label">{{story?.author}}</p>
       </ion-text>
 
-      <ion-text class="ion-margin-vertical">
-        <star-rating rating="4" fontSize="17px" [readonly]="true"> </star-rating>
-      </ion-text>
+      <star-rating rating="4" fontSize="17px" [readonly]="true"> </star-rating>
+
       <ion-segment (ionChange)="segmentChanged($event.target.value)" mode="ios">
         <ion-segment-button value="intro" [class]="segment === 'intro' ? 'segment-button-checked' : ''">
           <ion-label class="ion-text-uppercase">História</ion-label>

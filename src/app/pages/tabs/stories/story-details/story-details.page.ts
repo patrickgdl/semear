@@ -15,7 +15,8 @@ import { LoadingService } from './../../../../services/loading.service';
 export class StoryDetailsPage implements OnInit {
   story$: Observable<Story>;
   segment: string;
-  imageUrlStyle = `linear-gradient(162deg, rgba(56, 70, 108, .8) 20%, rgba(56, 70, 108, .8) 100%), url('$url') top no-repeat`;
+  imageUrlStyle = `linear-gradient(162deg, rgba(56, 70, 108, .8) 20%, rgba(56, 70, 108, .8) 100%),
+  url('$url') center top/contain no-repeat`;
 
   constructor(
     private route: ActivatedRoute,
@@ -50,5 +51,9 @@ export class StoryDetailsPage implements OnInit {
     if (segment === 'discussion') {
       this.router.navigate([`/stories/${id}/discussion`]);
     }
+  }
+
+  handleScroll(event: CustomEvent) {
+    console.log(event);
   }
 }
